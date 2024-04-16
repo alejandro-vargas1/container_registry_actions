@@ -34,8 +34,8 @@ jobs:
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
       - name: "Build image"
-        run: docker build --tag ${{ env.GAR_LOCATION }} .
+        run: docker build --tag flask_image .
         working-directory: .
 
       - name: "Push image"
-        run: docker push ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/github-actions/${{ env.GAR_LOCATION }}
+        run: docker push ${{ env.GAR_LOCATION }}/flask_image
